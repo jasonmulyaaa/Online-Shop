@@ -42,26 +42,21 @@
                                   </p>
                                   <form class="forms-sample">
                                     <div class="form-group">
-                                      <label for="exampleInputName1">Meta Keywords</label>
-                                      <textarea class="form-control" id="content" name="keywords">{{ $metaitem->keywords }}</textarea>
-                                      <script>
-                                          CKEDITOR.replace('content');
-                                      </script>
+                                      <label for="content">Meta Keywords</label>
+                                      <br>
+                                      <textarea id="content" name="keywords" rows="5" style="width: 100%;">{{ $metaitem->keywords }}</textarea>
+
                                     </div>
                                     <div class="form-group">
-                                      <label for="exampleInputName1">Meta Search Engine</label>
-                                      <textarea class="form-control" id="content1" name="search_engine">{{ $metaitem->search_engine }}</textarea>
-                                      <script>
-                                          CKEDITOR.replace('content1');
-                                      </script>
+                                      <label for="content1">Meta Search Engine</label>
+                                      <br>
+                                      <textarea id="content1" name="search_engine" rows="5" style="width: 100%;">{{ $metaitem->search_engine }}</textarea>
+
                                     </div>
 
                                     <div class="form-group">
-                                      <label for="exampleInputName1">Meta Deskripsi</label>
-                                      <textarea class="form-control" id="content2" name="deskripsi">{{ $metaitem->deskripsi }}</textarea>
-                                      <script>
-                                          CKEDITOR.replace('content2');
-                                      </script>
+                                      <label for="content2">Meta Deskripsi</label>
+                                      <textarea  id="content2" name="deskripsi" rows="5" style="width: 100%;">{{ $metaitem->deskripsi }}</textarea>
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputName1">Meta Author</label>

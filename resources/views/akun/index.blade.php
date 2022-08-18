@@ -41,9 +41,6 @@
                               Role
                             </th>
                             <th>
-                              Password
-                            </th>
-                            <th>
                               Action
                             </th>
                           </tr>
@@ -59,9 +56,6 @@
                             </td>
                             <td>
                               {{ $akun->role}}
-                            </td>
-                            <td class=" text-wrap">
-                            {{  $akun->password }}
                             </td>
                             <td>
                             <form action="{{ route('akun.destroy', $akun->id) }}" method="POST">
@@ -80,7 +74,7 @@
                       {!! $akuns->links() !!}
                       <br>
                       <div class="pull-right">
-                        <a href="#" class="btn btn-danger" id="deleteAllSelectedPreorder" onclick="location.reload()">Delete Selected</a>
+                        <a href="#" class="btn btn-danger" id="deleteAllSelectedAkun" onclick="location.reload()">Delete Selected</a>
                     </div>
 
                     </div>

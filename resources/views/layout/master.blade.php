@@ -40,14 +40,7 @@
             <span class="icon-menu"></span>
           </button>
         </div>
-        <div>
-          <a class="navbar-brand brand-logo" href="index.html">
-            <h3>Admin</h3>
-          </a>
-          <a class="navbar-brand brand-logo-mini" href="index.html">
-            <h3></h3>
-          </a>
-        </div>
+
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-top"> 
         <ul class="navbar-nav">
@@ -59,10 +52,10 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item dropdown ">
             <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <img class="img-xs rounded-circle" src="../../assets/images/faces/face8.jpg" alt="Profile image"> </a>
+              <i class="menu-icon mdi mdi mdi-account"></i> </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
-                <img class="img-md rounded-circle" src="../../assets/images/faces/face8.jpg" alt="Profile image">
+                <i class="menu-icon mdi mdi mdi-account"></i> 
                 <p class="mb-1 mt-3 font-weight-semibold">{{ Auth::user()->name }}</p>
               </div>
               <a href="/profile" class="btn btn-link"><i class="dropdown-item-icon mdi mdi-import text-primary me-2"></i>Edit Profil</a>
@@ -232,7 +225,7 @@
           <li class="nav-item nav-category">Contact Us</li>
           <li class="nav-item">
             <a class="nav-link" href="/contactus">
-              <i class="menu-icon mdi mdi mdi-earth"></i>
+              <i class="menu-icon mdi mdi mdi-contact-mail"></i>
               <span class="menu-title">Contact Us</span>
             </a>
           </li>
@@ -251,7 +244,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/akun">
-              <i class="menu-icon mdi mdi mdi-web"></i>
+              <i class="menu-icon mdi mdi mdi-account-key"></i>
               <span class="menu-title">Akun Management</span>
             </a>
           </li>
@@ -494,6 +487,34 @@
       });
       $.ajax({
         url:"{{ route('blog.deleteSelected') }}",
+        type:"DELETE",
+        data:{
+          _token:$("input[name=_token]").val(),
+          ids:allids
+        },
+        success:function(response){
+          $.each(allids,function(key,val){
+            $("#sid"+val).remove();
+          })
+        }
+      });
+    })
+  });
+</script>
+
+<script>
+  $(function(e){
+    $("#chkCheckAll").click(function(){
+      $(".checkBoxClass").prop('checked',$(this).prop('checked'));
+    });
+    $("#deleteAllSelectedAkun").click(function(e){
+      e.preventDefault();
+      var allids = [];
+      $("input:checkbox[name=ids]:checked").each(function(){
+        allids.push($(this).val());
+      });
+      $.ajax({
+        url:"{{ route('akun.deleteSelected') }}",
         type:"DELETE",
         data:{
           _token:$("input[name=_token]").val(),

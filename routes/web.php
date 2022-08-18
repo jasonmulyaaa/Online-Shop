@@ -83,3 +83,4 @@ Route::delete('/selected-banner', [BannerController::class, 'deleteCheckedBanner
 Route::delete('/selected-kategorigeneral', [KategoriGeneralController::class, 'deleteCheckedKategoriGeneral'])->name('kategorigeneral.deleteSelected');
 Route::delete('/selected-produk', [ProdukController::class, 'deleteCheckedProduk'])->name('produk.deleteSelected');
 Route::delete('/selected-blog', [BlogController::class, 'deleteCheckedBlog'])->name('blog.deleteSelected');
+Route::delete('/selected-akun', [AkunController::class, 'deleteCheckedAkun'])->name('akun.deleteSelected');

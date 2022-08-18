@@ -48,7 +48,7 @@
                           </div>
                           <div class="form-group">
                             <label for="exampleInputName1">New Password</label>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Email" name="email">
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Password" name="password">
                           </div>
                           <button type="submit" class="btn btn-primary me-2">Submit</button>
                         </form>

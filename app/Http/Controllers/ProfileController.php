@@ -69,9 +69,21 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $profile)
     {
-        //
+        $rules = ([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        $validate = $request->validate($rules);
+
+        $validate['password'] = bcrypt($request['password']);
+
+        $profile->update($validate);
+
+        return redirect()->route('profile.index')->with('success', 'Berhasil Mengubah Data!');
     }
 
     /**

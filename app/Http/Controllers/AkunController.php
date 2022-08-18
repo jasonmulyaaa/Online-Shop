@@ -15,7 +15,7 @@ class AkunController extends Controller
      */
     public function index()
     {
-        $akuns = User::latest()->paginate(5);
+        $akuns = User::where('role', '!=', 'superAdmin')->paginate(5);
 
         return view('akun.index', compact('akuns'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -115,5 +115,12 @@ class AkunController extends Controller
     {
         $akun->delete();
         return redirect()->route('akun.index')->with('success', 'Berhasil Menghapus Data!');
+    }
+
+    public function deleteCheckedAkun(Request $request)
+    {
+        $ids = $request->ids;
+        User::whereIn('id', $ids)->delete();
+        return response()->json(['success' => "Delete Success!"]);
     }
 }

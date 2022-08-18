@@ -20,9 +20,9 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Form Pre-order</h4>
+                  <h4 class="card-title">Form Akun Management</h4>
                   <p class="card-description">
-                    Isi Form Pre-order
+                    Isi Form Akun Management
                   </p>
                   <form class="forms-sample">
                     <div class="form-group">
@@ -35,10 +35,12 @@
                     </div>
                         <div class="form-group">
                             <label for="exampleInputName1">Role</label>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Role" name="role" value="{{ $akun->role}}">
-                          </div>
+                            <select class="form-control" name="role">
+                              <option value="Admin">Admin</option>
+                              <option value="Operator">Operator</option>
+                          </select>                           </div>
                           <div class="form-group">
-                            <label for="exampleInputName1">Password</label>
+                            <label for="exampleInputName1">New Password</label>
                             <input type="text" class="form-control" id="exampleInputName1" placeholder="Password" name="password">
                           </div>
                     <button type="submit" class="btn btn-primary me-2">Submit</button>
